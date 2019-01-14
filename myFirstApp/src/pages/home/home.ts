@@ -1,5 +1,4 @@
 import { PhotoViewer } from "@ionic-native/photo-viewer";
-import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 
@@ -17,9 +16,7 @@ class Pic {
   templateUrl: "home.html"
 })
 export class HomePage {
-  constructor(public navCtrl: NavController) {}
-
-  photoViewer: PhotoViewer;
+  constructor(public navCtrl: NavController, public photoViewer: PhotoViewer) {}
 
   picArray: Pic[] = [
     {

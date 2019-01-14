@@ -4,10 +4,15 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let item of picArray" (click)="itemSelected(item)">
-      <img src="{{ item.thumbnail }}" />
-      <header>{{ item.title }}</header>
+    <ion-item *ngFor="let item of picArray">
+      <ion-thumbnail item-start>
+        <img src="{{ item.thumbnail }}" />
+      </ion-thumbnail>
+      <h2>{{ item.title }}</h2>
       <p>{{ item.details }}</p>
-    </button>
+      <button ion-button clear item-end (click)="itemSelected(item)">
+        View
+      </button>
+    </ion-item>
   </ion-list>
 </ion-content>
