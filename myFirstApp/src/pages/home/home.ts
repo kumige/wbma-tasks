@@ -25,6 +25,11 @@ export class HomePage {
   getData = () => {
     this.http.get<IPic[]>("http://media.mw.metropolia.fi/wbma/media").subscribe(
       (res: IPic[]) => {
+        for (let i = 0; i < res.length; i++) {
+          let fileNames = res[i].filename.split(".");
+          console.log(fileNames);
+          res[i].filename = fileNames[0] + "-tn160.png";
+        }
         this.picArray = res;
       },
       error => {
