@@ -22,19 +22,16 @@ export class HomePage {
   }
 
   getFiles() {
-    this.mediaProvider.getAllMedia().subscribe(
-      (res: IPic[]) => {
-        this.picArray = res.map((pic: IPic) => {
-          res.forEach(element => {
-            this.mediaProvider.getSingleMedia(element);
+    this.mediaProvider.getAllMedia().subscribe((res: IPic[]) => {
+      res.forEach((pic: IPic) => {
+        this.mediaProvider
+          .getSingleMedia(pic.file_id)
+          .subscribe((file: IPic[]) => {
+            console.log(file);
+            this.picArray.push(file);
           });
-          return pic;
-        });
-      },
-      error => {
-        console.log(error);
-      }
-    );
+      });
+    });
   }
 
   picArray = [];
