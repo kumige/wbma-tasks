@@ -1,9 +1,9 @@
+import { MediaProvider } from "./../../providers/media/media";
 import { IPic } from "./../../interfaces/pic";
 import { HttpClient } from "@angular/common/http";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { getScrollData } from "ionic-angular/umd/components/input/input";
 
 @Component({
   selector: "page-home",
@@ -13,30 +13,29 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public http: HttpClient,
-    public photoViewer: PhotoViewer
+    public photoViewer: PhotoViewer,
+    public mediaProvider: MediaProvider
   ) {}
 
   ngOnInit() {
-    this.getData();
+    this.getFiles();
   }
 
-  pic: IPic;
-
-  getData = () => {
-    this.http.get<IPic[]>("http://media.mw.metropolia.fi/wbma/media").subscribe(
+  getFiles() {
+    this.mediaProvider.getAllMedia().subscribe(
       (res: IPic[]) => {
-        for (let i = 0; i < res.length; i++) {
-          let fileNames = res[i].filename.split(".");
-          console.log(fileNames);
-          res[i].filename = fileNames[0] + "-tn160.png";
-        }
-        this.picArray = res;
+        this.picArray = res.map((pic: IPic) => {
+          res.forEach(element => {
+            this.mediaProvider.getSingleMedia(element);
+          });
+          return pic;
+        });
       },
       error => {
         console.log(error);
       }
     );
-  };
+  }
 
   picArray = [];
 

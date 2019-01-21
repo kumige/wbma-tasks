@@ -8,6 +8,12 @@ export interface IPic {
   media_type: string;
   mime_type: string;
   time_added: string;
-  screenshot: string;
-  thumbnails: string;
+  screenshot?: string;
+  thumbnails?: IThumbnail;
+}
+
+export interface IThumbnail {
+  160: string;
+  320: string;
+  640: string;
 }
