@@ -27,7 +27,6 @@ export class HomePage {
         this.mediaProvider
           .getSingleMedia(pic.file_id)
           .subscribe((file: IPic[]) => {
-            console.log(file);
             this.picArray.push(file);
           });
       });

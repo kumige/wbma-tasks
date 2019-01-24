@@ -1,0 +1,15 @@
+<ion-tabs>
+  <ion-tab [root]="tab1Root" tabTitle="Home"></ion-tab>
+  <ion-tab
+    [show]="!mediaProvider.loggedIn"
+    [root]="tab2Root"
+    (ionSelect)="mode()"
+    tabTitle="Login"
+  ></ion-tab>
+  <ion-tab
+    [show]="mediaProvider.loggedIn"
+    [root]="tab3Root"
+    (ionSelect)="mode()"
+    tabTitle="Logout"
+  ></ion-tab>
+</ion-tabs>

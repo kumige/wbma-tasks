@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar> <ion-title>Login</ion-title> </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- TODO add FORMS for login and registration -->
+
+  <form class="form" (ngSubmit)="login()">
+    <ion-item *ngIf="this.mediaProvider.registerMode">
+      <ion-label>Email</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="user.email"
+        name="Email"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="user.username"
+        name="Username"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input
+        type="password"
+        [(ngModel)]="user.password"
+        name="Password"
+        required
+      ></ion-input>
+    </ion-item>
+    <button
+      *ngIf="!this.mediaProvider.registerMode"
+      ion-button
+      type="submit"
+      block
+    >
+      Login
+    </button>
+  </form>
+  <button id="register" ion-button block>Register</button>
+</ion-content>
