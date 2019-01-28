@@ -7,6 +7,14 @@ export interface User {
   time_created?: Date;
 }
 
+export interface Profile {
+  user_id?: number;
+  username: string;
+  email?: string;
+  full_name?: string;
+  filename?: string;
+}
+
 export interface LoginResponse {
   message: string;
   token: string;

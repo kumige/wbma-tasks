@@ -11,11 +11,11 @@ import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
 import { MediaProvider } from "../providers/media/media";
 import { LoginRegisterPage } from "../pages/login-register/login-register";
-import { LogoutPage } from "../pages/logout/logout";
+import { ProfilePage } from "../pages/profile/profile";
 import { MenuPage } from "./../pages/menu/menu";
 
 @NgModule({
-  declarations: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
+  declarations: [MyApp, HomePage, MenuPage, LoginRegisterPage, ProfilePage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -23,7 +23,7 @@ import { MenuPage } from "./../pages/menu/menu";
     PipesModule
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
+  entryComponents: [MyApp, HomePage, MenuPage, LoginRegisterPage, ProfilePage],
   providers: [
     StatusBar,
     SplashScreen,

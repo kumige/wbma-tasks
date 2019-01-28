@@ -1,5 +1,5 @@
 import { MediaProvider } from "./../../providers/media/media";
-import { LogoutPage } from "./../logout/logout";
+import { ProfilePage } from "../profile/profile";
 import { LoginRegisterPage } from "./../login-register/login-register";
 import { HomePage } from "./../home/home";
 import { Component } from "@angular/core";
@@ -25,7 +25,7 @@ export class MenuPage {
 
   tab1Root = HomePage;
   tab2Root = LoginRegisterPage;
-  tab3Root = LogoutPage;
+  tab3Root = ProfilePage;
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad MenuPage");

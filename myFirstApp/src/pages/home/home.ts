@@ -25,16 +25,6 @@ export class HomePage {
   }
 
   getFiles() {
-    /*this.mediaProvider.getAllMedia().subscribe((res: IPic[]) => {
-      res.forEach((pic: IPic) => {
-        this.mediaProvider
-          .getSingleMedia(pic.file_id)
-          .subscribe((file: IPic[]) => {
-            this.picArray.push(file);
-          });
-      });
-    });*/
-
     this.picArray = this.mediaProvider.getAllMedia();
   }
 

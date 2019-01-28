@@ -29,7 +29,6 @@ export class LoginRegisterPage {
   };
 
   login = () => {
-    console.log(this.mediaProvider.loggedIn);
     this.mediaProvider.login(this.user).subscribe(
       (res: LoginResponse) => {
         if (!this.mediaProvider.loggedIn) {
