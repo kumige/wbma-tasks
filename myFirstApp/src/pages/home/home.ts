@@ -4,12 +4,15 @@ import { HttpClient } from "@angular/common/http";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
+  picArray: Observable<IPic[]>;
+
   constructor(
     public navCtrl: NavController,
     public http: HttpClient,
@@ -22,7 +25,7 @@ export class HomePage {
   }
 
   getFiles() {
-    this.mediaProvider.getAllMedia().subscribe((res: IPic[]) => {
+    /*this.mediaProvider.getAllMedia().subscribe((res: IPic[]) => {
       res.forEach((pic: IPic) => {
         this.mediaProvider
           .getSingleMedia(pic.file_id)
@@ -30,10 +33,10 @@ export class HomePage {
             this.picArray.push(file);
           });
       });
-    });
-  }
+    });*/
 
-  picArray = [];
+    this.picArray = this.mediaProvider.getAllMedia();
+  }
 
   itemSelected(item) {
     this.photoViewer.show(item.original);

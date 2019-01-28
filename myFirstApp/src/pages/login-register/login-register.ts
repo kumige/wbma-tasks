@@ -29,10 +29,10 @@ export class LoginRegisterPage {
   };
 
   login = () => {
+    console.log(this.mediaProvider.loggedIn);
     this.mediaProvider.login(this.user).subscribe(
       (res: LoginResponse) => {
         if (!this.mediaProvider.loggedIn) {
-          console.log(res);
           this.mediaProvider.loggedIn = true;
           localStorage.setItem("token", res.token);
           this.navCtrl.push(HomePage);
@@ -47,7 +47,6 @@ export class LoginRegisterPage {
   };
 
   register = () => {
-    console.log("register", this.mediaProvider.loggedIn);
     if (this.mediaProvider.registerMode) {
       this.mediaProvider.userCheck(this.user).subscribe(
         (res: UserCheck) => {
@@ -68,11 +67,7 @@ export class LoginRegisterPage {
   registerPost() {
     this.mediaProvider.register(this.user).subscribe(
       (res: RegisterResponse) => {
-        console.log("registerPost", this.mediaProvider.loggedIn);
         this.login();
-        /*this.mediaProvider.loggedIn = true;
-        localStorage.setItem("token", res.token);
-        this.navCtrl.push(HomePage);*/
       },
       error => {
         console.log(error);

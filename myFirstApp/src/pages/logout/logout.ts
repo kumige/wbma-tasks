@@ -22,8 +22,10 @@ export class LogoutPage {
     public mediaProvider: MediaProvider
   ) {}
 
-  ionViewDidLoad() {
+  // async ionViewWillEnter()
+  ionViewOnLoad() {
     localStorage.clear();
+    console.log(this.mediaProvider.loggedIn);
     this.mediaProvider.loggedIn = false;
     this.navCtrl.push(HomePage);
   }

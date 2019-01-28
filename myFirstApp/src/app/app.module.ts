@@ -1,3 +1,4 @@
+import { PipesModule } from "./../pipes/pipes.module";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
@@ -15,7 +16,12 @@ import { MenuPage } from "./../pages/menu/menu";
 
 @NgModule({
   declarations: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp), HttpClientModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    PipesModule
+  ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, MenuPage, LoginRegisterPage, LogoutPage],
   providers: [

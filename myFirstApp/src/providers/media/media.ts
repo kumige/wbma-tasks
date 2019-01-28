@@ -27,7 +27,7 @@ export class MediaProvider {
   }
 
   getSingleMedia(id) {
-    return this.http.get<IPic[]>(
+    return this.http.get<IPic>(
       "http://media.mw.metropolia.fi/wbma/media/" + id
     );
   }
