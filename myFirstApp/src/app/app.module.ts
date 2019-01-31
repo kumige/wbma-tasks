@@ -13,6 +13,7 @@ import { MediaProvider } from "../providers/media/media";
 import { LoginRegisterPage } from "../pages/login-register/login-register";
 import { ProfilePage } from "../pages/profile/profile";
 import { MenuPage } from "./../pages/menu/menu";
+import { Validators } from "@angular/forms";
 
 @NgModule({
   declarations: [MyApp, HomePage, MenuPage, LoginRegisterPage, ProfilePage],
