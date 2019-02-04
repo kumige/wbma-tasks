@@ -1,5 +1,15 @@
 <ion-header>
-  <ion-navbar> <ion-title> Home </ion-title> </ion-navbar>
+  <ion-navbar>
+    <ion-title> Home </ion-title>
+    <button
+      *ngIf="this.mediaProvider.loggedIn"
+      ion-button
+      outline
+      (click)="navUpload()"
+    >
+      Upload
+    </button>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>

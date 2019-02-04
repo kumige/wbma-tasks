@@ -34,15 +34,12 @@ export class ProfilePage {
   getUserData() {
     this.mediaProvider.getProfileData().subscribe(res => {
       this.user = res;
-      console.log("user", this.user);
       this.mediaProvider.getProfilePic("profile").subscribe((res: any[]) => {
-        console.log("images tagged with profile", res);
         res.forEach(element => {
           if (element.user_id === this.user.user_id) {
             this.picUrl += element.filename;
           }
         });
-        console.log("user with filename", this.user);
       });
     });
   }
@@ -53,7 +50,6 @@ export class ProfilePage {
 
   logOut() {
     localStorage.clear();
-    console.log(this.mediaProvider.loggedIn);
     this.mediaProvider.loggedIn = false;
     this.navCtrl.push(HomePage);
   }

@@ -1,3 +1,4 @@
+import { UploadPage } from "./../upload/upload";
 import { MediaProvider } from "./../../providers/media/media";
 import { IPic } from "./../../interfaces/pic";
 import { HttpClient } from "@angular/common/http";
@@ -20,7 +21,7 @@ export class HomePage {
     public mediaProvider: MediaProvider
   ) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.getFiles();
   }
 
@@ -30,5 +31,9 @@ export class HomePage {
 
   itemSelected(item) {
     this.photoViewer.show(item.original);
+  }
+
+  navUpload() {
+    this.navCtrl.push(UploadPage);
   }
 }

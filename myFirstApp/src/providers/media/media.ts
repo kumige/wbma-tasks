@@ -80,4 +80,30 @@ export class MediaProvider {
       httpOptions
     );
   }
+
+  upload(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.post(
+      "http://media.mw.metropolia.fi/wbma/media",
+      data,
+      httpOptions
+    );
+  }
+
+  addTag(data: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.post(
+      "http://media.mw.metropolia.fi/wbma/tags",
+      data,
+      httpOptions
+    );
+  }
 }

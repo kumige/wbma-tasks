@@ -1,0 +1,8 @@
+page-upload {
+  img {
+    filter: "brightness(this.brightness)";
+    filter: "contrast(this.contrast)";
+    filter: "saturation(this.saturation)";
+    filter: "sepia(this.sepia)";
+  }
+}
