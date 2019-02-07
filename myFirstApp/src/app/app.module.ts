@@ -15,6 +15,7 @@ import { ProfilePage } from "../pages/profile/profile";
 import { MenuPage } from "./../pages/menu/menu";
 import { Validators } from "@angular/forms";
 import { UploadPage } from "../pages/upload/upload";
+import { Chooser } from "@ionic-native/chooser";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UploadPage } from "../pages/upload/upload";
     SplashScreen,
     PhotoViewer,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    MediaProvider
+    MediaProvider,
+    Chooser
   ]
 })
 export class AppModule {}

@@ -5,4 +5,9 @@ page-upload {
     filter: "saturation(this.saturation)";
     filter: "sepia(this.sepia)";
   }
+  #uploadButtons {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+  }
 }
