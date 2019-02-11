@@ -1,0 +1,48 @@
+<!--
+  Generated template for the PlayerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<head>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+  />
+</head>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Player</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <pinch-zoom *ngIf="imageContent">
+    <img
+      [src]="
+        'http://media.mw.metropolia.fi/wbma/uploads/' +
+        this.navParams.data.filename
+      "
+      [ngStyle]="getFilters()"
+    />
+  </pinch-zoom>
+  <video *ngIf="videoContent" width="320" height="240" controls>
+    <source
+      [src]="
+        'http://media.mw.metropolia.fi/wbma/uploads/' +
+        this.navParams.data.filename
+      "
+    />
+  </video>
+  <audio *ngIf="audioContent" controls>
+    <source
+      [src]="
+        'http://media.mw.metropolia.fi/wbma/uploads/' +
+        this.navParams.data.filename
+      "
+    />
+  </audio>
+  <h2>{{ this.navParams.data.title }}</h2>
+  <p>{{ this.username }}</p>
+  <p>{{ this.navParams.data.description | description }}</p>
+</ion-content>

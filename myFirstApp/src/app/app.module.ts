@@ -1,3 +1,6 @@
+import { DescriptionPipe } from "./../pipes/description/description";
+import { FiltersPipe } from "./../pipes/filters/filters";
+import { PlayerPage } from "./../pages/player/player";
 import { PipesModule } from "./../pipes/pipes.module";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -16,6 +19,7 @@ import { MenuPage } from "./../pages/menu/menu";
 import { Validators } from "@angular/forms";
 import { UploadPage } from "../pages/upload/upload";
 import { Chooser } from "@ionic-native/chooser";
+import { PinchZoomModule } from "ngx-pinch-zoom";
 
 @NgModule({
   declarations: [
@@ -24,13 +28,15 @@ import { Chooser } from "@ionic-native/chooser";
     MenuPage,
     LoginRegisterPage,
     ProfilePage,
-    UploadPage
+    UploadPage,
+    PlayerPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    PipesModule
+    PipesModule,
+    PinchZoomModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +45,8 @@ import { Chooser } from "@ionic-native/chooser";
     MenuPage,
     LoginRegisterPage,
     ProfilePage,
-    UploadPage
+    UploadPage,
+    PlayerPage
   ],
   providers: [
     StatusBar,
@@ -47,7 +54,9 @@ import { Chooser } from "@ionic-native/chooser";
     PhotoViewer,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     MediaProvider,
-    Chooser
+    Chooser,
+    FiltersPipe,
+    DescriptionPipe
   ]
 })
 export class AppModule {}

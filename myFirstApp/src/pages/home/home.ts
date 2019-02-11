@@ -6,6 +6,7 @@ import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { Observable } from "rxjs/Observable";
+import { PlayerPage } from "../player/player";
 
 @Component({
   selector: "page-home",
@@ -30,7 +31,14 @@ export class HomePage {
   }
 
   itemSelected(item) {
-    this.photoViewer.show(item.original);
+    console.log(item);
+    this.navCtrl.push(PlayerPage, {
+      filename: item.filename,
+      type: item.media_type,
+      title: item.title,
+      description: item.description,
+      user_id: item.user_id
+    });
   }
 
   navUpload() {

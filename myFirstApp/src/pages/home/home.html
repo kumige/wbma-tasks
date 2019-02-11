@@ -17,10 +17,19 @@
     <ion-item *ngFor="let item of (picArray | async)">
       <ion-thumbnail item-start>
         <img
+          *ngIf="item.media_type == 'image'"
           [alt]="item.title"
           [src]="
             'http://media.mw.metropolia.fi/wbma/uploads/' +
             (item.file_id | thumbnail: 'medium' | async)
+          "
+        />
+        <img
+          *ngIf="item.media_type == 'video'"
+          [alt]="item.title"
+          [src]="
+            'http://media.mw.metropolia.fi/wbma/uploads/' +
+            (item.file_id | thumbnail: 'screenshot' | async)
           "
         />
       </ion-thumbnail>

@@ -43,6 +43,18 @@ export class MediaProvider {
     );
   }
 
+  getUserData(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.get<User>(
+      "http://media.mw.metropolia.fi/wbma/users/" + id,
+      httpOptions
+    );
+  }
+
   login(user: User) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -103,6 +115,18 @@ export class MediaProvider {
     return this.http.post(
       "http://media.mw.metropolia.fi/wbma/tags",
       data,
+      httpOptions
+    );
+  }
+
+  getTags(id) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.post(
+      "http://media.mw.metropolia.fi/wbma/tags/file/" + id,
       httpOptions
     );
   }
