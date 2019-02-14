@@ -25,8 +25,7 @@ export class PlayerPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public mediaProvider: MediaProvider,
-    public descriptionPipe: DescriptionPipe
+    public mediaProvider: MediaProvider
   ) {
     this.navParams.get("filename");
   }

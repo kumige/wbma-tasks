@@ -1,3 +1,6 @@
+import { ModifyPage } from "./../pages/modify/modify";
+import { FilePopoverPage } from "./../pages/file-popover/file-popover";
+import { MyFilesPage } from "./../pages/my-files/my-files";
 import { DescriptionPipe } from "./../pipes/description/description";
 import { FiltersPipe } from "./../pipes/filters/filters";
 import { PlayerPage } from "./../pages/player/player";
@@ -29,7 +32,10 @@ import { PinchZoomModule } from "ngx-pinch-zoom";
     LoginRegisterPage,
     ProfilePage,
     UploadPage,
-    PlayerPage
+    PlayerPage,
+    MyFilesPage,
+    FilePopoverPage,
+    ModifyPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,10 @@ import { PinchZoomModule } from "ngx-pinch-zoom";
     LoginRegisterPage,
     ProfilePage,
     UploadPage,
-    PlayerPage
+    PlayerPage,
+    MyFilesPage,
+    FilePopoverPage,
+    ModifyPage
   ],
   providers: [
     StatusBar,

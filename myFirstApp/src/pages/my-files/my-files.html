@@ -1,0 +1,42 @@
+<!--
+  Generated template for the MyFilesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Files</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of (picArray | async)">
+      <ion-thumbnail item-start>
+        <img
+          *ngIf="item.media_type == 'image'"
+          [alt]="item.title"
+          [src]="
+            'http://media.mw.metropolia.fi/wbma/uploads/' +
+            (item.file_id | thumbnail: 'medium' | async)
+          "
+        />
+        <img
+          *ngIf="item.media_type == 'video'"
+          [alt]="item.title"
+          [src]="
+            'http://media.mw.metropolia.fi/wbma/uploads/' +
+            (item.file_id | thumbnail: 'screenshot' | async)
+          "
+        />
+      </ion-thumbnail>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.time_added | date: "d/M/yy" }}</p>
+      <p>{{ item.description }}</p>
+      <button ion-button large clear item-end (click)="presentPopover(item)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

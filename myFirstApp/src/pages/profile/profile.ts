@@ -1,3 +1,4 @@
+import { MyFilesPage } from "./../my-files/my-files";
 import { IPic } from "./../../interfaces/pic";
 import { User, Profile } from "./../../interfaces/User";
 import { LoginRegisterPage } from "../login-register/login-register";
@@ -46,6 +47,10 @@ export class ProfilePage {
 
   getImg() {
     return this.sanitizer.bypassSecurityTrustUrl(this.picUrl);
+  }
+
+  navMyFiles() {
+    this.navCtrl.push(MyFilesPage);
   }
 
   logOut() {

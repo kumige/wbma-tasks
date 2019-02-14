@@ -20,6 +20,19 @@ export class MediaProvider {
     return this.http.get<IPic[]>("http://media.mw.metropolia.fi/wbma/media");
   }
 
+  getUserMedia() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.get<IPic[]>(
+      "http://media.mw.metropolia.fi/wbma/media/user",
+      httpOptions
+    );
+  }
+
   getSingleMedia(id) {
     return this.http.get<IPic>(
       "http://media.mw.metropolia.fi/wbma/media/" + id
@@ -51,6 +64,31 @@ export class MediaProvider {
     };
     return this.http.get<User>(
       "http://media.mw.metropolia.fi/wbma/users/" + id,
+      httpOptions
+    );
+  }
+
+  updateFile(fileID, data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.put(
+      "http://media.mw.metropolia.fi/wbma/media/" + fileID,
+      data,
+      httpOptions
+    );
+  }
+
+  deleteFile(fileID) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-access-token": localStorage.getItem("token")
+      })
+    };
+    return this.http.delete(
+      "http://media.mw.metropolia.fi/wbma/media/" + fileID,
       httpOptions
     );
   }

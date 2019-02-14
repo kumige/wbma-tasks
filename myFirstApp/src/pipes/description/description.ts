@@ -18,12 +18,7 @@ export class DescriptionPipe implements PipeTransform {
     try {
       return re.exec(value)[1];
     } catch (e) {
-      return {
-        brightness: 100,
-        contrast: 100,
-        warmth: 0,
-        saturation: 100
-      };
+      return value;
     }
   }
 }
